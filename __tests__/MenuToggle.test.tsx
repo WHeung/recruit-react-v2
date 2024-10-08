@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen, fireEvent } from './test-utils';
-import MenuToggle from '../src/components/MenuToggle';
+import MenuToggle from '../src/components/MenuToggle/MenuToggle';
 import '@testing-library/jest-dom';
 
 describe('MenuToggle', () => {
