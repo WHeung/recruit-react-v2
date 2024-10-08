@@ -1,11 +1,11 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen } from './test-utils';
 import Header from '../src/components/Header';
 import '@testing-library/jest-dom';
 
 describe('Header', () => {
   test('renders the header with a MenuToggle', () => {
-    // Render the Header component
+    // Render MenuToggle
     render(<Header />);
 
     // Look for the button element that toggles the menu

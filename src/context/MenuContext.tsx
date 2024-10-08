@@ -5,7 +5,7 @@ interface IMenuContext {
   toggleMenu: () => void;
 }
 
-const MenuContext = createContext<MenuContextType | undefined>(undefined);
+const MenuContext = createContext<IMenuContext | undefined>(undefined);
 
 export const MenuProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [menuVisible, setMenuVisible] = useState<boolean>(false);

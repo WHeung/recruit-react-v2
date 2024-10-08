@@ -1,11 +1,11 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent } from './test-utils';
 import MenuToggle from '../src/components/MenuToggle';
 import '@testing-library/jest-dom';
 
 describe('MenuToggle', () => {
   test('clicking the burger icon shows the menu', () => {
-    // Render the MenuToggle component in a virtual DOM
+    // Render MenuToggle
     render(<MenuToggle />);
 
     // Get the button that toggles the menu
