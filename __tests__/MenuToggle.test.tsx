@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import MenuToggle from '../components/MenuToggle';
+import MenuToggle from '../src/components/MenuToggle';
 import '@testing-library/jest-dom/extend-expect';
 
 describe('MenuToggle', () => {
