@@ -1,6 +1,11 @@
-import React, { FC } from "react";
-import * as styles from "./app.module.scss";
+import React, { FC } from 'react';
+import * as styles from './app.module.scss';
+import Header from './components/Header';
 
 export const App = () => {
-  return <h1 className={styles.demo}>Welcome to your technical test!</h1>;
+  return (
+    <main>
+      <Header />
+    </main>
+  );
 };
