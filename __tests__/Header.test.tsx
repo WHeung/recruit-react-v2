@@ -1,0 +1,17 @@
+import React from 'react';
+import { render, screen } from './test-utils';
+import Header from '../src/components/Header/Header';
+import '@testing-library/jest-dom';
+
+describe('Header', () => {
+  test('renders the header with a MenuToggle', () => {
+    // Render MenuToggle
+    render(<Header />);
+
+    // Look for the button element that toggles the menu
+    const menuToggle = screen.getByRole('button', { name: /open menu/i });
+
+    // Assert that both the logo and MenuToggle button are in the document
+    expect(menuToggle).toBeInTheDocument();
+  });
+});
