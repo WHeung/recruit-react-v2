@@ -7,7 +7,9 @@ const Header: React.FC = () => {
     <header className='h-[3rem] flex items-center justify-between p-1 bg-gray-300' aria-label='Main Header'>
       <MenuToggle />
       {/* Centered Text */}
-      <h4 className='mx-auto'>Register card form</h4>
+      <h1 className='mx-auto' aria-label='register-card-heading'>
+        Register card form
+      </h1>
     </header>
   );
 };

@@ -8,7 +8,7 @@ describe('Menu', () => {
     render(<Menu />);
 
     // Look for the navigation element
-    const menu = screen.getByRole('heading', { name: /menu/i });
+    const menu = screen.getByRole('heading', { name: /menu/i, hidden: true });
 
     // Assert
     expect(menu).toBeInTheDocument();

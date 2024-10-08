@@ -9,14 +9,20 @@ const Menu: React.FC = () => {
       className={`fixed top-0 left-0 w-full h-full bg-black bg-opacity-90 text-white transform transition-transform duration-300 ease-in-out ${
         menuVisible ? 'translate-x-0' : '-translate-x-full'
       }`}
+      aria-hidden={!menuVisible}
+      aria-expanded={menuVisible}
+      role='dialog'
     >
       <div className='h-[3rem] flex items-center justify-between p-1 '>
+        {/* Close button */}
         <button aria-expanded={menuVisible} aria-controls='menu' aria-label={'Close menu'} onClick={() => toggleMenu(false)}>
           <BackIcon />
         </button>
-        <h4 className='mx-auto'>Menu</h4>
+        <h1 className='mx-auto' aria-label='menu-heading'>
+          Menu
+        </h1>
       </div>
-      <nav role='navigation' aria-label='menu' aria-hidden={!menuVisible}>
+      <nav role='navigation' aria-labelledby='menu-heading'>
         <p>This is menu content</p>
       </nav>
     </div>
