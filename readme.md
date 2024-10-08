@@ -37,3 +37,23 @@ You can use any tools, plugins and technologies as required for you to complete 
 
 # Submitting Assignment
 Feel free to create a public GitHub repo or private GitHub repo where it's accessible to the assessor
+
+# Development plan
+[development_plan](./docs/development_plan.md)
+
+
+# Result
+## video
+![video](./docs/screen.gif)
+## test
+![test](./docs/test.png)
+## Accessibility
+![accessibility](./docs/accessibility.png)
+
+# Optimization Opportunities
+While the current implementation of the project meets the basic requirements, there are several areas where future enhancements can be made to improve
+
+- UI Optimization
+- Real-time form validation
+- E2E Testing with Cypress
+
