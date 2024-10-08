@@ -1,5 +1,7 @@
+import React from 'react';
 import { render, screen, fireEvent } from './test-utils';
 import RegisterCardForm from '../src/components/RegisterCardForm/RegisterCardForm';
+import '@testing-library/jest-dom';
 
 test('renders the Register Card Form', () => {
   render(<RegisterCardForm />);
@@ -9,20 +11,23 @@ test('renders the Register Card Form', () => {
   expect(screen.getByLabelText(/card number/i)).toBeInTheDocument();
   expect(screen.getByLabelText(/expiry date/i)).toBeInTheDocument();
   expect(screen.getByLabelText(/cvc/i)).toBeInTheDocument();
-  expect(screen.getByRole('button', { name: /submit/i })).toBeInTheDocument();
+  expect(screen.getByRole('button', { name: /submit register card form/i })).toBeInTheDocument();
 });
 
 test('displays error when fields are empty on submit', () => {
   render(<RegisterCardForm />);
 
   // Submit without entering any values
-  fireEvent.click(screen.getByRole('button', { name: /submit/i }));
+  fireEvent.click(screen.getByRole('button', { name: /submit register card form/i }));
 
   // Check for the error message
-  expect(screen.getByText(/all fields are required/i)).toBeInTheDocument();
+  expect(screen.getByRole('alert')).toHaveTextContent(/all fields are required/i);
 });
 
 test('successfully submits the form when all fields are filled', () => {
+  const alertMock = jest.fn();
+  window.alert = alertMock;
+
   render(<RegisterCardForm />);
 
   // Fill out the form fields
@@ -31,13 +36,12 @@ test('successfully submits the form when all fields are filled', () => {
   fireEvent.change(screen.getByLabelText(/cvc/i), { target: { value: '123' } });
 
   // Submit the form
-  fireEvent.click(screen.getByRole('button', { name: /submit/i }));
+  fireEvent.click(screen.getByRole('button', { name: /submit register card form/i }));
 
   // Ensure no error message is shown
-  expect(screen.queryByText(/all fields are required/i)).toBeNull();
+  expect(screen.queryByRole('alert')).toBeNull();
 
-  // Since we used alert, we need to mock it to check if it was called
-  const alertMock = jest.spyOn(window, 'alert').mockImplementation();
+  // Mock the alert to check if it was called
   expect(alertMock).toHaveBeenCalledWith('Card registered successfully');
-  alertMock.mockRestore(); // Clean up after test
+  alertMock.mockRestore();
 });
