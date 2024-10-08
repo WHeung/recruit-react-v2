@@ -2,7 +2,7 @@ import React, { createContext, useState, useContext, ReactNode } from 'react';
 
 interface IMenuContext {
   menuVisible: boolean;
-  toggleMenu: () => void;
+  toggleMenu: (visible: boolean) => void;
 }
 
 const MenuContext = createContext<IMenuContext | undefined>(undefined);
@@ -10,8 +10,8 @@ const MenuContext = createContext<IMenuContext | undefined>(undefined);
 export const MenuProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [menuVisible, setMenuVisible] = useState<boolean>(false);
 
-  const toggleMenu = () => {
-    setMenuVisible((prevState) => !prevState);
+  const toggleMenu = (visible: boolean) => {
+    setMenuVisible(visible);
   };
 
   return <MenuContext.Provider value={{ menuVisible, toggleMenu }}>{children}</MenuContext.Provider>;

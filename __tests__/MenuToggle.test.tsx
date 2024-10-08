@@ -38,9 +38,9 @@ describe('MenuToggle', () => {
     fireEvent.click(backButton);
 
     // Get the menu element again
-    const menu = screen.queryByRole('navigation');
+    const hiddenMenu = screen.queryByRole('navigation');
 
-    // Assert that the menu is not visible anymore
-    expect(menu).not.toBeVisible();
+    // Assert that the menu is hidden
+    expect(hiddenMenu).toBeNull();  // The menu should no longer be accessible
   });
 });
