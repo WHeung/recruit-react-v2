@@ -35,7 +35,7 @@
   - [ ] Write the test for the Header component
   - [ ] Write tests to ensure that clicking the burger icon shows the menu.
   - [ ] Write tests to ensure that clicking the back icon hides the menu.
-  - [ ] Adjust the `app.tsx` structure.
+  - [ ] Adjust the `app.tsx` structure and write tests.
   - [ ] Implement a Header component
   - [ ] Implement the menu state using React Context to manage visibility.
   - [ ] Implement the `MenuToggle` component that toggles visibility between shows and hides the `Menu`.

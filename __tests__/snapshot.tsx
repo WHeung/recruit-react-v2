@@ -1,5 +1,6 @@
+import React from 'react';
 import { render } from '@testing-library/react';
-import App from '../src/app';
+import { App } from '../src/app';
 
 describe('Page', () => {
   it('renders homepage unchanged', () => {

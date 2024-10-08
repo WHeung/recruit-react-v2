@@ -1,6 +1,7 @@
+import React from 'react';
 import { render, screen } from '@testing-library/react';
 import Header from '../src/components/Header';
-import '@testing-library/jest-dom/extend-expect';
+import '@testing-library/jest-dom';
 
 describe('Header', () => {
   test('renders the header with a MenuToggle', () => {
