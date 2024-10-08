@@ -1,0 +1,45 @@
+import { render, screen, fireEvent } from '@testing-library/react';
+import MenuToggle from '../components/MenuToggle';
+import '@testing-library/jest-dom/extend-expect';
+
+describe('MenuToggle', () => {
+  test('clicking the burger icon shows the menu', () => {
+    // Render the MenuToggle component in a virtual DOM
+    render(<MenuToggle />);
+
+    // Get the button that toggles the menu
+    const burgerIcon = screen.getByRole('button', { name: /open menu/i });
+
+    // click on the burger icon
+    fireEvent.click(burgerIcon);
+
+    // Get the menu (which should appear after the button is clicked)
+    const menu = screen.getByRole('navigation');
+
+    // Assert that the menu is now visible
+    expect(menu).toBeVisible();
+  });
+
+  test('clicking the back icon hides the menu', () => {
+    // Render the MenuToggle component
+    render(<MenuToggle />);
+
+    // Get the button that toggles the menu
+    const burgerIcon = screen.getByRole('button', { name: /open menu/i });
+
+    // Simulate clicking the burger icon to show the menu
+    fireEvent.click(burgerIcon);
+
+    // Get the back button that closes the menu
+    const backButton = screen.getByRole('button', { name: /close menu/i });
+
+    // Simulate a user click on the back button
+    fireEvent.click(backButton);
+
+    // Get the menu element again
+    const menu = screen.queryByRole('navigation');
+
+    // Assert that the menu is not visible anymore
+    expect(menu).not.toBeVisible();
+  });
+});
