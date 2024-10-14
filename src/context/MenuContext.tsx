@@ -1,6 +1,6 @@
 import React, { createContext, useState, useContext, ReactNode } from 'react';
 
-interface IMenuContext {
+export interface IMenuContext {
   menuVisible: boolean;
   toggleMenu: (visible: boolean) => void;
 }
@@ -18,7 +18,7 @@ export const MenuProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
 };
 
 // Custom hook to use the MenuContext
-export const useMenu = () => {
+export const useMenu = (): IMenuContext => {
   const context = useContext(MenuContext);
   if (!context) {
     throw new Error('useMenu must be used within a MenuProvider');

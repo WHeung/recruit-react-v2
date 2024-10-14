@@ -1,5 +1,5 @@
 import React from 'react';
-import { useMenu } from '../../context/MenuContext';
+import { IMenuContext, useMenu } from '../../context/MenuContext';
 import Menu from '../Menu/Menu';
 
 const MenuToggle: React.FC = () => {

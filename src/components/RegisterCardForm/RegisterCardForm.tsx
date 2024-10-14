@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const RegisterCardForm: React.FC = () => {
   // State for storing form input values
-  const [cardNumber, setCardNumber] = useState('');
-  const [expiryDate, setExpiryDate] = useState('');
-  const [cvc, setCVC] = useState('');
-  const [error, setError] = useState('');
+  const [cardNumber, setCardNumber] = useState<string>('');
+  const [expiryDate, setExpiryDate] = useState<string>('');
+  const [cvc, setCVC] = useState<string>('');
+  const [error, setError] = useState<string>('');
 
   // Validates the form fields. If any field is empty, sets an error message and returns false.
 
