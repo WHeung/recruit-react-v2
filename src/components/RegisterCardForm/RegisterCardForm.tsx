@@ -10,6 +10,19 @@ const RegisterCardForm: React.FC = () => {
   // Validates the form fields. If any field is empty, sets an error message and returns false.
 
   const validateForm = () => {
+    const cardNumberList = cardNumber.split(' ');
+    if (cardNumberList?.length !== 4) {
+      setError('incorrect');
+      return false;
+    }
+    for (let index = 0; index < cardNumberList.length; index++) {
+      const item = cardNumberList[index];
+      console.log(Number(cardNumberList[index]));
+      if (Number.isNaN(Number(item))) {
+        setError('incorrect');
+        return false;
+      }
+    }
     if (!cardNumber || !expiryDate || !cvc) {
       setError('All fields are required');
       return false;
